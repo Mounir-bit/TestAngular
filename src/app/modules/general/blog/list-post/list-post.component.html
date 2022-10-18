@@ -1,0 +1,32 @@
+<div class="container">
+  <a routerLink="/add-post"><button class="btn btn-success pull-right" > Add Post</button></a>
+  <table class="table">  
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Catégorie</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elem of posts">
+        <td>{{ elem.id }}</td>
+        <td>{{ elem.titre }}</td>
+        <td>{{ elem.categorie }}</td>
+        <td>{{ elem.description }}</td>
+        <td>{{ elem.date }}</td>        
+        <td>
+          <a [routerLink]="['/update-post/',elem.id]" class="btn btn-primary me-3" > Edit </a>
+          <input type="button" class="btn btn-danger" (click)="deleteTodo(elem.id,$event)" value="delete">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+  
+
+
